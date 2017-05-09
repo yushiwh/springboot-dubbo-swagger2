@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.jztey</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jztey</groupId>
+	<artifactId>gxdubbo</artifactId>
+	<packaging>pom</packaging>
+	<version>DEV-SNAPSHOT</version>
+
+
+
+
+	<modules>
+		<module>api</module>
+		<module>web</module>
+	</modules>
+
+
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>framework</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>gxdubbo-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>gxdubbo-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>filecenter-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>msgcenter-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>healthcard-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jztey</groupId>
+				<artifactId>gxdemo-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+</project>

@@ -1,0 +1,471 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "显示各种情况的列子",
+    "version" : "v1",
+    "title" : "例子接口文档"
+  },
+  "host" : "test-api.998jk.com",
+  "basePath" : "/gxdemo",
+  "tags" : [ {
+    "name" : "用户"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/user/pb" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "User列表，GET方法带参数，如http://localhost:8080/user/pb?sex=1&page=2&pageSize=10",
+        "description" : "",
+        "operationId" : "findPage",
+        "parameters" : [ {
+          "name" : "sex",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "pageSize",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "total",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/getConfig" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "取得配置文件",
+        "description" : "",
+        "operationId" : "getConfig",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/getConfigHttpClient/{healthAccount}/{httpType}" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "从配置文件中取出URL，根据传入的get或者post并且进行http请求",
+        "description" : "",
+        "operationId" : "getConfigHttpClient",
+        "parameters" : [ {
+          "name" : "healthAccount",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "httpType",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/mybatis" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "mybatis请求",
+        "description" : "",
+        "operationId" : "getMybatis",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/mybatis2" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "mybatis2请求",
+        "description" : "",
+        "operationId" : "getMybatis2",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/paramHeader" : {
+      "post" : {
+        "tags" : [ "用户" ],
+        "summary" : "通过head传递参数",
+        "description" : "",
+        "operationId" : "paramHeader",
+        "parameters" : [ {
+          "name" : "headParam",
+          "in" : "header",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/pathparam/{sex}" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "传递单个参数,不带分页，GET方法PathParam,指定的是URL中只出现参数的值，不出现键值对，如http://localhost:8080/user/pb/pathparam/1",
+        "description" : "",
+        "operationId" : "findBySexPathParam",
+        "parameters" : [ {
+          "name" : "sex",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/queryparam" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "User列表,POST传递单个参数,不带分页，GET方法,URL中的参数是以键值对的形式出现的，如http://localhost:8080/user/pb/queryparam?sex=1",
+        "description" : "",
+        "operationId" : "findBySexQueryParam",
+        "parameters" : [ {
+          "name" : "sex",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/redis/{healthAccount}" : {
+      "get" : {
+        "tags" : [ "用户" ],
+        "summary" : "redis请求",
+        "description" : "",
+        "operationId" : "getRedis",
+        "parameters" : [ {
+          "name" : "healthAccount",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/search" : {
+      "post" : {
+        "tags" : [ "用户" ],
+        "summary" : "通用的搜索User列表",
+        "description" : "",
+        "operationId" : "search",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/PagingUser"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/sex" : {
+      "post" : {
+        "tags" : [ "用户" ],
+        "summary" : "User列表,POST传递单个参数,不带分页",
+        "description" : "",
+        "operationId" : "findBySex",
+        "parameters" : [ {
+          "name" : "sex",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/sexNoPage" : {
+      "post" : {
+        "tags" : [ "用户" ],
+        "summary" : "User列表,POST传递单个参数,不带分页,不带｛｝",
+        "description" : "",
+        "operationId" : "findBySexSimple",
+        "parameters" : [ {
+          "name" : "sex",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pb/users" : {
+      "post" : {
+        "tags" : [ "用户" ],
+        "summary" : "User列表,复杂对象传递带分页",
+        "description" : "",
+        "operationId" : "findPageByEntity",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/UserVo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pt/add" : {
+      "post" : {
+        "tags" : [ "用户" ],
+        "summary" : "添加User表数据",
+        "description" : "",
+        "operationId" : "insertOrUpdate",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/User"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    },
+    "/user/pt/{age}/{sex}" : {
+      "delete" : {
+        "tags" : [ "用户" ],
+        "summary" : "根据年龄性别删除User表数据",
+        "description" : "",
+        "operationId" : "delete",
+        "parameters" : [ {
+          "name" : "age",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "sex",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/RestfulResultUser"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "PagingUser" : {
+      "type" : "object",
+      "properties" : {
+        "page" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "pageSize" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "total" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "query" : {
+          "$ref" : "#/definitions/User"
+        },
+        "endIndex" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "startIndex" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "needSetTotal" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
+    "RestfulResultUser" : {
+      "type" : "object",
+      "properties" : {
+        "success" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "code" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "data" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/User"
+          }
+        }
+      }
+    },
+    "User" : {
+      "type" : "object",
+      "required" : [ "age", "sex" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "姓名"
+        },
+        "age" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "年龄",
+          "minimum" : 6.0,
+          "maximum" : 100.0
+        },
+        "sex" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "性别",
+          "enum" : [ 1, 2 ]
+        },
+        "address" : {
+          "type" : "string",
+          "description" : "地址"
+        }
+      },
+      "description" : "用户表"
+    },
+    "UserVo" : {
+      "type" : "object",
+      "properties" : {
+        "paging" : {
+          "$ref" : "#/definitions/PagingUser"
+        },
+        "user" : {
+          "$ref" : "#/definitions/User"
+        }
+      },
+      "description" : "用户表的vo"
+    }
+  }
+}
